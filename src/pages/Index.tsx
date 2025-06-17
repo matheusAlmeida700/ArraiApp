@@ -64,8 +64,9 @@ const Index = () => {
             reverse
           />
           <FeatureSection
-            title="Ganhe pontos enquanto espera!"
-            text="Nada de tédio na fila! Aqui você joga mini-games divertidos e acumula pontos que viram prêmios na festa — como comidas, brindes e experiências exclusivas. É só entrar, jogar e trocar!"
+            title="A fila virou arraial!"
+            text="Nada de esperar parado! No ArraiApp, a diversão começa antes mesmo do forró tocar.
+Enquanto a sanfona esquenta, você joga, marca ponto e já garante aquele quitute gostoso ou brinde especial."
             image="/ballons.png"
           />
         </section>

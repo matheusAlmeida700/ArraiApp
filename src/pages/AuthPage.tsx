@@ -104,7 +104,7 @@ const AuthPage = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-default-dark flex flex-col poppins">
+      <div className="min-h-screen bg-[url(/login-bg.png)] bg-cover bg-center flex flex-col poppins">
         <header className="w-full pl-12 pt-6 flex justify-between items-center z-10">
           <Link
             to="/"
