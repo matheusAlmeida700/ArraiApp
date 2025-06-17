@@ -39,12 +39,36 @@ const AuthPage = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const isValidCPF = (cpf) => {
+    cpf = cpf.replace(/\D/g, "");
+
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+    let sum = 0;
+    for (let i = 0; i < 9; i++) sum += parseInt(cpf[i]) * (10 - i);
+    let firstDigit = (sum * 10) % 11;
+    if (firstDigit === 10) firstDigit = 0;
+    if (parseInt(cpf[9]) !== firstDigit) return false;
+
+    sum = 0;
+    for (let i = 0; i < 10; i++) sum += parseInt(cpf[i]) * (11 - i);
+    let secondDigit = (sum * 10) % 11;
+    if (secondDigit === 10) secondDigit = 0;
+    if (parseInt(cpf[10]) !== secondDigit) return false;
+
+    return true;
+  };
+
   if (isAuthenticated) {
     return <Navigate to="/games" />;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (activeTab === "signup" && !isValidCPF(formData.cpf)) {
+      alert("CPF inválido!");
+      return;
+    }
     setIsSubmitting(true);
     setError(null);
 
